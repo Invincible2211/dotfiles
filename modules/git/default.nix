@@ -5,7 +5,7 @@
   username,
   ...
 }: let
-   package = pkgs.git;
+  package = pkgs.git;
 in {
   options.modules.git = {
     enable = lib.mkEnableOption "git";
@@ -15,7 +15,7 @@ in {
     environment.systemPackages = [package];
     home-manager.users.${username} = {
       programs.git = {
-       inherit package;
+        inherit package;
         enable = true;
         delta = {
           enable = true;

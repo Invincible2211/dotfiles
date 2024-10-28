@@ -1,15 +1,17 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, username, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-./modules/git
-    ];
+  config,
+  pkgs,
+  username,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./modules/git
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -85,9 +87,9 @@
   users.users.${username} = {
     isNormalUser = true;
     description = "Fynn";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -100,9 +102,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-  vesktop
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
+    vesktop
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -137,32 +139,32 @@
     "flakes"
   ];
   modules = {
-git.enable = true;
-}; 
+    git.enable = true;
+  };
   home-manager.users.${username}.home.stateVersion = "24.05";
-programs.nix-ld.enable = true;
-    programs.nix-ld.libraries = with pkgs; [
-        gtk3
-        glib
-        cairo
-        pango
-        gdk-pixbuf
-        harfbuzz
-        atk
-        epoxy
-        glib-networking
-        libsecret
-        networkmanager
-        libstdcxx5
-        libGL
-        alsa-lib
-    ];
-fonts.packages = with pkgs; [
-  (nerdfonts.override { fonts = ["JetBrainsMono"]; })
-];
-environment.shellAliases = {
-        rebuild = "sudo nixos-rebuild switch --flake .#kaguya";
-systconf = "nano /home/fynn/dotfiles/configuration.nix";
-    };
-services.gnome.gnome-keyring.enable = true;
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    gtk3
+    glib
+    cairo
+    pango
+    gdk-pixbuf
+    harfbuzz
+    atk
+    epoxy
+    glib-networking
+    libsecret
+    networkmanager
+    libstdcxx5
+    libGL
+    alsa-lib
+  ];
+  fonts.packages = with pkgs; [
+    (nerdfonts.override {fonts = ["JetBrainsMono"];})
+  ];
+  environment.shellAliases = {
+    rebuild = "sudo nixos-rebuild switch --flake .#kaguya";
+    sysconf = "nano /home/fynn/dotfiles/configuration.nix";
+  };
+  services.gnome.gnome-keyring.enable = true;
 }
