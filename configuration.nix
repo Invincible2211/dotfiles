@@ -140,6 +140,29 @@
 git.enable = true;
 }; 
   home-manager.users.${username}.home.stateVersion = "24.05";
-
+programs.nix-ld.enable = true;
+    programs.nix-ld.libraries = with pkgs; [
+        gtk3
+        glib
+        cairo
+        pango
+        gdk-pixbuf
+        harfbuzz
+        atk
+        epoxy
+        glib-networking
+        libsecret
+        networkmanager
+        libstdcxx5
+        libGL
+        alsa-lib
+    ];
+fonts.packages = with pkgs; [
+  (nerdfonts.override { fonts = ["JetBrainsMono"]; })
+];
+environment.shellAliases = {
+        rebuild = "sudo nixos-rebuild switch --flake .#kaguya";
+systconf = "nano /home/fynn/dotfiles/configuration.nix";
+    };
 services.gnome.gnome-keyring.enable = true;
 }
