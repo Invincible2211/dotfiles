@@ -1,0 +1,3 @@
+{
+  importFromDir = import ./importFromDir {};
+}

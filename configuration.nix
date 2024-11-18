@@ -11,13 +11,14 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./modules/git
+    ./modules/programms
   ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "Tsukuyomi"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -86,7 +87,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${username} = {
     isNormalUser = true;
-    description = "Fynn";
+    description = "${username}";
     extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
       #  thunderbird
@@ -105,8 +106,17 @@
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
     vesktop
+    obsidian
+    spotify
+    protonmail-desktop
+    jetbrains.pycharm-professional
+    jetbrains.idea-ultimate
+    python3
   ];
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-25.9.0"
+  ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -162,9 +172,5 @@
   fonts.packages = with pkgs; [
     (nerdfonts.override {fonts = ["JetBrainsMono"];})
   ];
-  environment.shellAliases = {
-    rebuild = "sudo nixos-rebuild switch --flake .#kaguya";
-    sysconf = "nano /home/fynn/dotfiles/configuration.nix";
-  };
   services.gnome.gnome-keyring.enable = true;
 }
