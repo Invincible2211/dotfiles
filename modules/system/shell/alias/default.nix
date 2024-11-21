@@ -1,6 +1,10 @@
-{username, name, ...}: {
+{
+  username,
+  name,
+  ...
+}: {
   environment.shellAliases = {
     rebuild = "sudo nixos-rebuild switch --flake /home/${username}/dotfiles/.#${name}";
-    sysconf = "nano /home/kaguya/dotfiles/configuration.nix";
+    nfmt = "nix fmt -I /home/${username}/dotfiles";
   };
 }

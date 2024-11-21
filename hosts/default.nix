@@ -8,13 +8,12 @@ inputs: let
     system ? "x86_64-linux",
   }: let
     specialArgs = {
-      inherit username name hostname lib;
+      inherit name username hostname lib;
     };
   in
     inputs.nixpkgs.lib.nixosSystem {
       inherit system specialArgs;
       modules = [
-        ../configuration.nix
         ../modules
         ./${name}
         ./${name}/hardware-configuration.nix

@@ -15,15 +15,6 @@
     home-manager,
   }: {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
-    #   nixosConfigurations.kaguya = nixpkgs.lib.nixosSystem {
-    #    system = "x86_64-linux";
-    #   modules = [
-    #    ./configuration.nix
-    #   home-manager.nixosModules.home-manager
-    #];
-    #specialArgs.username = "kaguya";
-    #specialArgs.lib = lib;
-    #};
     nixosConfigurations = import ./hosts inputs;
   };
 }
