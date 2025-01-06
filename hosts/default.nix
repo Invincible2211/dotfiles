@@ -1,5 +1,5 @@
 inputs: let
-  lib = inputs.nixpkgs.lib.extend (final: prev: import ../lib);
+  lib = inputs.nixpkgs.lib.extend (final: prev: import ../lib {lib = prev;});
 
   mkNixosConfig = {
     name,
@@ -18,6 +18,7 @@ inputs: let
         ./${name}
         ./${name}/hardware-configuration.nix
         inputs.home-manager.nixosModules.home-manager
+        inputs.nur.nixosModules.nur
       ];
     };
 in {

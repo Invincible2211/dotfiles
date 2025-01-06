@@ -17,5 +17,7 @@
 
   modules = {
     git.enable = true;
+    gnome.enable = true;
+    applications.firefox.enable = true;
   };
 }
