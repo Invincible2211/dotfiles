@@ -21,6 +21,29 @@
         "type": "github"
       }
     },
+    "modulix": {
+      "inputs": {
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1735999230,
+        "narHash": "sha256-dtvYNCyEZ48rlmU7q4/mQKcHw3PBaZ9DfXh2XbUsxu0=",
+        "owner": "anders130",
+        "repo": "modulix",
+        "rev": "6b51e354e002dc6a86511067ab3c00f7c3fc6e62",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anders130",
+        "repo": "modulix",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1733412085,
@@ -55,6 +78,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "modulix": "modulix",
         "nixpkgs": "nixpkgs",
         "nur": "nur"
       }

@@ -11,13 +11,16 @@
   #    device = "nodev";
   #  };
   #};
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   modules = {
     git.enable = true;
-    gnome.enable = true;
-    applications.firefox.enable = true;
+    system.gnome.enable = true;
+    programms.firefox.enable = true;
   };
 }

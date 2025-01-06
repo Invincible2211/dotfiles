@@ -1,10 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
-  imports = lib.importFromDir ./.;
-
+{pkgs, ...}: {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
