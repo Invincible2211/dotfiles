@@ -25,6 +25,7 @@
       helpers = import ./lib inputs;
       specialArgs = {
         hostname = "nixos";
+        TRUUUUE = true;
       };
       sharedConfig = {
         imports = [
@@ -48,6 +49,7 @@
             nix.enable = true;
             shell = {
               alias.enable = true;
+              tools.enable= true;
             };
             user.enable = true;
           };
