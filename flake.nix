@@ -20,7 +20,7 @@
     formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.alejandra;
     nixosConfigurations = inputs.modulix.lib.mkHosts {
       inherit inputs;
-      flakePath = "/home/jesse/Projects/invincible-dotfiles";
+      flakePath = "/home/hoshi/dotfiles";
       modulesPath = ./modules;
       helpers = import ./lib inputs;
       specialArgs = {
