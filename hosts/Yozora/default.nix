@@ -1,26 +1,56 @@
-{
+{pkgs,...} :{
   # Bootloader.
   #boot.loader = {
   #  efi = {
   #    canTouchEfiVariables = true;
-  #    efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
+  #    efiSysMountPoint = "/boot/efi";
   #  };
   #  grub = {
   #    efiSupport = true;
-  #    #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
-  #    device = "nodev";
+  #    device = "dev/nvme0n1";
+  #    configurationLimit = 5;
   #  };
   #};
-  #boot.loader.grub.configurationLimit
+  #boot.loader.grub.c
   imports = [
     ./hardware-configuration.nix
   ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 5;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
 
-  boot.plymouth.enable = true;
+      plymouth = {
+        enable = true;
+        theme = "deus_ex";
+        themePackages = with pkgs; [
+          # By default we would install all themes
+          (adi1090x-plymouth-themes.override {
+            selected_themes = [ "deus_ex" ];
+          })
+        ];
+      };
+
+      # Enable "Silent Boot"
+      consoleLogLevel = 0;
+      initrd.verbose = false;
+      kernelParams = [
+        "quiet"
+        "splash"
+        "boot.shell_on_fail"
+        "loglevel=3"
+        "rd.systemd.show_status=false"
+        "rd.udev.log_level=3"
+        "udev.log_priority=3"
+      ];
+      # Hide the OS choice for bootloaders.
+      # It's still possible to open the bootloader list by pressing any key
+      # It will just not appear on screen unless a key is pressed
+      loader = {
+        timeout = 0;
+        systemd-boot.enable = true;
+        systemd-boot.configurationLimit = 5;
+        efi.canTouchEfiVariables = true;
+      };
+    };
 
   modules = {
     git.enable = true;
