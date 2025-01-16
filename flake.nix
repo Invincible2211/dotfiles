@@ -49,7 +49,7 @@
             nix.enable = true;
             shell = {
               alias.enable = true;
-              tools.enable= true;
+              tools.enable = true;
             };
             user.enable = true;
           };

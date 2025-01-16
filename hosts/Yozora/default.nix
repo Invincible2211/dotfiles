@@ -18,6 +18,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.plymouth.enable = true;
+
   modules = {
     git.enable = true;
     system.gnome.enable = true;

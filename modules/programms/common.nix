@@ -9,7 +9,7 @@
     protonmail-desktop
     jetbrains.pycharm-professional
     jetbrains.idea-ultimate
-    python3
+    jetbrains.datagrip
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
