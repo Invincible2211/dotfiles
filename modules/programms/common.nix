@@ -10,6 +10,7 @@
     jetbrains.pycharm-professional
     jetbrains.idea-ultimate
     jetbrains.datagrip
+    fastfetch
   ];
 
   nixpkgs.config.permittedInsecurePackages = [

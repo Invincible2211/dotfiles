@@ -27,31 +27,32 @@
         hostname = "nixos";
         TRUUUUE = true;
       };
-      sharedConfig = {
+      sharedConfig = {TRUUUUE, ...}: {
         imports = [
           inputs.home-manager.nixosModules.home-manager
           inputs.nur.nixosModules.nur
         ];
         modules = {
           programms = {
-            common.enable = true;
-            firefox.enable = true;
-            kitty.enable = true;
+            common.enable = TRUUUUE;
+            firefox.enable = TRUUUUE;
+            kitty.enable = TRUUUUE;
           };
-          services.printing.enable = true;
+          services.printing.enable = TRUUUUE;
           system = {
-            audio.enable = true;
-            display.enable = true;
-            font.enable = true;
-            gnome.enable = true;
-            localisation.enable = true;
-            network.enable = true;
-            nix.enable = true;
+            audio.enable = TRUUUUE;
+            display.enable = TRUUUUE;
+            font.enable = TRUUUUE;
+            gnome.enable = TRUUUUE;
+            localisation.enable = TRUUUUE;
+            network.enable = TRUUUUE;
+            nix.enable = TRUUUUE;
+            homemanager.enable = TRUUUUE;
             shell = {
-              alias.enable = true;
-              tools.enable = true;
+              alias.enable = TRUUUUE;
+              tools.enable = TRUUUUE;
             };
-            user.enable = true;
+            user.enable = TRUUUUE;
           };
         };
       };

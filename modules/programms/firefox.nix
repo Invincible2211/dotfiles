@@ -13,7 +13,7 @@
     ublock-origin
   ];
 in {
-  home-manager.users.${username} = {
+  hm = {
     programs.firefox = {
       enable = true;
       profiles = {

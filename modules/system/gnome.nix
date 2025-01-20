@@ -12,7 +12,7 @@
   };
 in {
   environment.systemPackages = extensions;
-  home-manager.users.${username}.dconf.settings = {
+  hm.dconf.settings = {
     "org/gnome/desktop/peripherals/touchpad".click-method = "default";
     "org/gnome/desktop/interface".color-scheme = "prefer-dark";
     "org/gnome/shell" = {
