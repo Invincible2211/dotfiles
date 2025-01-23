@@ -11,6 +11,9 @@
     jetbrains.idea-ultimate
     jetbrains.datagrip
     fastfetch
+    teams-for-linux
+    gnumake
+    python3
   ];
 
   nixpkgs.config.permittedInsecurePackages = [

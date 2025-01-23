@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   # Bootloader.
   #boot.loader = {
   #  efi = {
@@ -12,9 +16,6 @@
   #  };
   #};
   #boot.loader.grub.c
-  imports = [
-    ./hardware-configuration.nix
-  ];
 
   boot = {
     plymouth = {
@@ -51,9 +52,21 @@
     };
   };
 
+  imports = [
+    ./hardware-configuration.nix
+  ];
+
+  nixpkgs.overlays = [
+    inputs.nix-xilinx.overlay
+  ];
+
   modules = {
     git.enable = true;
     system.gnome.enable = true;
     programms.firefox.enable = true;
   };
+
+  environment.systemPackages = [
+    pkgs.vivado
+  ];
 }

@@ -9,6 +9,10 @@
     };
     nur.url = "github:nix-community/NUR";
 
+    nix-xilinx = {
+      url = "gitlab:doronbehar/nix-xilinx";
+    };
+
     modulix = {
       url = "github:anders130/modulix";
       inputs.nixpkgs.follows = "nixpkgs";
