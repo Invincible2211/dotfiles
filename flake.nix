@@ -9,6 +9,8 @@
     };
     nur.url = "github:nix-community/NUR";
 
+    wfetch.url = "github:iynaix/wfetch";
+
     nix-xilinx = {
       url = "gitlab:doronbehar/nix-xilinx";
     };
