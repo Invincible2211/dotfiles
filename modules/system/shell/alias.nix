@@ -15,6 +15,6 @@
     gnreset = "dconf reset -f /";
     g = "git";
     letmeout = "poweroff";
-    ff = "fastfetch";
+    wf = "wfetch --waifu";
   };
 }

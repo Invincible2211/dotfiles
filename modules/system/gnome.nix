@@ -6,10 +6,6 @@
   extensions = with pkgs.gnomeExtensions; [
     appindicator
   ];
-  wallpaperImg = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/refs/heads/master/wallpapers/nix-wallpaper-nineish-solarized-dark.png";
-    hash = "sha256-ZBrk9izKvsY4Hzsr7YovocCbkRVgUN9i/y1B5IzOOKo";
-  };
 in {
   environment.systemPackages = extensions;
   hm.dconf.settings = {
@@ -32,11 +28,6 @@ in {
       clock-show-weekday = true;
       enable-hot-corners = false;
       show-battery-percentage = true;
-    };
-    "org/gnome/desktop/background" = {
-      picture-uri = "file://${wallpaperImg}";
-      picture-uri-dark = "file://${wallpaperImg}";
-      primary-color = "#ff7800";
     };
   };
 }

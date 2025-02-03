@@ -15,6 +15,11 @@
       url = "gitlab:doronbehar/nix-xilinx";
     };
 
+    stylix = {
+      url = "github:danth/stylix/release-24.11";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     modulix = {
       url = "github:anders130/modulix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -43,6 +48,7 @@
             common.enable = TRUUUUE;
             firefox.enable = TRUUUUE;
             kitty.enable = TRUUUUE;
+            stylix.enable = TRUUUUE;
           };
           services.printing.enable = TRUUUUE;
           system = {

@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  stylix.targets.plymouth.enable = false;
   boot = {
     plymouth = {
       enable = true;

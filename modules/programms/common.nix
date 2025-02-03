@@ -14,9 +14,9 @@
     teams-for-linux
     gnumake
     python3
+    wfetch
+    neovim
   ];
-
-
 
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
