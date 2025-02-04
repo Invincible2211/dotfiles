@@ -2,8 +2,12 @@
   username,
   internalName,
   flakePath,
+  lib,
+  inputs,
   ...
-}: {
+}: let
+  imagePath = "${inputs.image-repo}/"+lib.toLower internalName+"/nix-snowflake-colours-akane.png";
+in {
   programs.nh = {
     enable = true;
     flake = flakePath;
@@ -15,6 +19,7 @@
     gnreset = "dconf reset -f /";
     g = "git";
     letmeout = "poweroff";
-    wf = "wfetch --waifu";
+    letmefix = "reboot";
+    wf = "wfetch --wallpaper " + imagePath;
   };
 }

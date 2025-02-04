@@ -15,6 +15,11 @@
       url = "gitlab:doronbehar/nix-xilinx";
     };
 
+    image-repo = {
+      url = "github:Invincible2211/nix-images";
+      flake = false;
+    };
+
     stylix = {
       url = "github:danth/stylix/release-24.11";
       inputs.home-manager.follows = "home-manager";
@@ -37,6 +42,7 @@
       specialArgs = {
         hostname = "nixos";
         TRUUUUE = true;
+        imagerepo = inputs.image-repo;
       };
       sharedConfig = {TRUUUUE, ...}: {
         imports = [

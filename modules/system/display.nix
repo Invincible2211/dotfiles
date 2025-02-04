@@ -13,4 +13,10 @@
   };
 
   services.gnome.gnome-keyring.enable = true;
+
+  services.xserver = {
+    videoDrivers = [
+      "displaylink"
+    ];
+  };
 }

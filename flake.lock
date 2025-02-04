@@ -401,6 +401,22 @@
         "type": "github"
       }
     },
+    "image-repo": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1738599316,
+        "narHash": "sha256-oT7HtqbF+Qj00RAstIPyfEcf9qlM50Pobckrefup+Ec=",
+        "owner": "Invincible2211",
+        "repo": "nix-images",
+        "rev": "995a88bd132cacbc0195e45e6978aa111da761c6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Invincible2211",
+        "repo": "nix-images",
+        "type": "github"
+      }
+    },
     "libgit2": {
       "flake": false,
       "locked": {
@@ -636,6 +652,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "image-repo": "image-repo",
         "modulix": "modulix",
         "nix-xilinx": "nix-xilinx",
         "nixpkgs": "nixpkgs_2",
