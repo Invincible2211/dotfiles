@@ -16,7 +16,7 @@
     stylix = {
       enable = true;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
-      image = "${imagerepo}/"+lib.toLower internalName+"/nix-wallpaper-nineish-solarized-dark.png";
+      image = "${imagerepo}/" + lib.toLower internalName + "/nix-wallpaper-nineish-solarized-dark.png";
       polarity = "dark";
     };
   };

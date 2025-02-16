@@ -15,7 +15,7 @@
     gnumake
     python3
     wfetch
-    neovim
+    gnome-tweaks
   ];
 
   nixpkgs.config.permittedInsecurePackages = [

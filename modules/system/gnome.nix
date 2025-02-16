@@ -5,9 +5,15 @@
 }: let
   extensions = with pkgs.gnomeExtensions; [
     appindicator
+    open-bar
+    forge
+    space-bar
+    no-overview
   ];
 in {
+  services.gnome.core-utilities.enable = false;
   environment.systemPackages = extensions;
+  environment.defaultPackages = [];
   hm.dconf.settings = {
     "org/gnome/desktop/peripherals/touchpad".click-method = "default";
     "org/gnome/desktop/interface".color-scheme = "prefer-dark";

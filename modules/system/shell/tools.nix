@@ -1,3 +1,3 @@
-{TRUUUUE, ...}: {
-  programs.direnv.enable = TRUUUUE;
+{...}: {
+  programs.direnv.enable = true;
 }

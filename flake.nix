@@ -15,6 +15,12 @@
       url = "gitlab:doronbehar/nix-xilinx";
     };
 
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-24.11";
+      # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     image-repo = {
       url = "github:Invincible2211/nix-images";
       flake = false;
@@ -41,36 +47,39 @@
       helpers = import ./lib inputs;
       specialArgs = {
         hostname = "nixos";
-        TRUUUUE = true;
         imagerepo = inputs.image-repo;
       };
-      sharedConfig = {TRUUUUE, ...}: {
+      sharedConfig = {...}: {
         imports = [
           inputs.home-manager.nixosModules.home-manager
           inputs.nur.nixosModules.nur
+          inputs.nixvim.nixosModules.nixvim
         ];
         modules = {
           programms = {
-            common.enable = TRUUUUE;
-            firefox.enable = TRUUUUE;
-            kitty.enable = TRUUUUE;
-            stylix.enable = TRUUUUE;
+            common.enable = true;
+            firefox.enable = true;
+            kitty.enable = true;
+            stylix.enable = true;
+            nixvim.enable = true;
+	    docker.enable = true;
           };
-          services.printing.enable = TRUUUUE;
+          services.printing.enable = true;
           system = {
-            audio.enable = TRUUUUE;
-            display.enable = TRUUUUE;
-            font.enable = TRUUUUE;
-            gnome.enable = TRUUUUE;
-            localisation.enable = TRUUUUE;
-            network.enable = TRUUUUE;
-            nix.enable = TRUUUUE;
-            homemanager.enable = TRUUUUE;
+	    kernel.enable = true;
+            audio.enable = true;
+            display.enable = true;
+            font.enable = true;
+            gnome.enable = true;
+            localisation.enable = true;
+            network.enable = true;
+            nix.enable = true;
+            homemanager.enable = true;
             shell = {
-              alias.enable = TRUUUUE;
-              tools.enable = TRUUUUE;
+              alias.enable = true;
+              tools.enable = true;
             };
-            user.enable = TRUUUUE;
+            user.enable = true;
           };
         };
       };

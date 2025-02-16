@@ -6,7 +6,7 @@
   inputs,
   ...
 }: let
-  imagePath = "${inputs.image-repo}/"+lib.toLower internalName+"/nix-snowflake-colours-akane.png";
+  imagePath = "${inputs.image-repo}/" + lib.toLower internalName + "/nix-snowflake-colours-akane.png";
 in {
   programs.nh = {
     enable = true;
@@ -19,6 +19,7 @@ in {
     gnreset = "dconf reset -f /";
     g = "git";
     letmeout = "poweroff";
+    letmego = "shutdown -h now";
     letmefix = "reboot";
     wf = "wfetch --wallpaper " + imagePath;
   };
