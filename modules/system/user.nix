@@ -4,12 +4,10 @@
   lib,
   ...
 }: {
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${username} = {
     isNormalUser = true;
     description = lib.capitalized username;
     extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-    ];
+    hashedPassword = "$y$j9T$gCOwXf/LgEYuKz0W/JX9B0$YG21RcSfIk4e29NxYAo4hRAMRcfPOmgmUn5mINLvg8C";
   };
 }

@@ -8,7 +8,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-
     wfetch.url = "github:iynaix/wfetch";
 
     nix-xilinx = {
@@ -47,7 +46,7 @@
       helpers = import ./lib inputs;
       specialArgs = {
         hostname = "nixos";
-	username = "nixuser";
+        username = "nixuser";
         imagerepo = inputs.image-repo;
       };
       sharedConfig = {...}: {
@@ -63,11 +62,11 @@
             kitty.enable = true;
             stylix.enable = true;
             nixvim.enable = true;
-	    docker.enable = true;
+            docker.enable = true;
           };
           services.printing.enable = true;
           system = {
-	    kernel.enable = true;
+            kernel.enable = true;
             audio.enable = true;
             display.enable = true;
             font.enable = true;

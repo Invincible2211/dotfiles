@@ -19,13 +19,11 @@ in {
           // {
             id = 0;
             isDefault = true;
-
           };
         work =
           profileBaseConfig
           // {
             id = 1;
-
           };
       };
     };
