@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
@@ -16,6 +15,11 @@
     python3
     wfetch
     gnome-tweaks
+    librewolf
+    logisim-evolution
+    virtualbox
+    nautilus
+    kalker
   ];
 
   nixpkgs.config.permittedInsecurePackages = [

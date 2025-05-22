@@ -7,7 +7,7 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur.url = "github:nix-community/NUR";
+
 
     wfetch.url = "github:iynaix/wfetch";
 
@@ -47,12 +47,13 @@
       helpers = import ./lib inputs;
       specialArgs = {
         hostname = "nixos";
+	username = "nixuser";
         imagerepo = inputs.image-repo;
       };
       sharedConfig = {...}: {
         imports = [
           inputs.home-manager.nixosModules.home-manager
-          inputs.nur.nixosModules.nur
+
           inputs.nixvim.nixosModules.nixvim
         ];
         modules = {
