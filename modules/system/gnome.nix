@@ -14,6 +14,12 @@ in {
   services.gnome.core-utilities.enable = false;
   environment.systemPackages = extensions;
   environment.defaultPackages = [];
+
+  #services.gnome.gdm.extraConfig = ''
+  #  [greeter]
+  #  Exclude=root
+  #'';
+
   hm.dconf.settings = {
     "org/gnome/desktop/peripherals/touchpad".click-method = "default";
     "org/gnome/desktop/interface".color-scheme = "prefer-dark";

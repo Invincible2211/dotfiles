@@ -35,6 +35,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    nix-easyroam.url = "github:0x5a4/nix-easyroam";
   };
 
   outputs = inputs: {
@@ -63,6 +65,7 @@
             stylix.enable = true;
             nixvim.enable = true;
             docker.enable = true;
+            virtualbox.enable = true;
           };
           services.printing.enable = true;
           system = {

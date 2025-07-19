@@ -17,9 +17,12 @@
     gnome-tweaks
     librewolf
     logisim-evolution
-    virtualbox
     nautilus
     kalker
+    lyx
+    texlive.combined.scheme-full
+    openconnect
+    onlyoffice-desktopeditors
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
