@@ -12,22 +12,13 @@
     fastfetch
     teams-for-linux
     gnumake
-    python3
     wfetch
     gnome-tweaks
     librewolf
-    logisim-evolution
     nautilus
     kalker
-    lyx
-    texlive.combined.scheme-full
     openconnect
     onlyoffice-desktopeditors
-
-    python39Packages.pygments
   ];
-
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0"
-  ];
+  
 }
