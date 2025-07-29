@@ -23,6 +23,8 @@
     texlive.combined.scheme-full
     openconnect
     onlyoffice-desktopeditors
+
+    python39Packages.pygments
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
