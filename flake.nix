@@ -56,13 +56,28 @@
         ];
         modules = {
           programms = {
-            common.enable = true;
-            firefox.enable = true;
-            kitty.enable = true;
-            stylix.enable = true;
-            nixvim.enable = true;
-            docker.enable = true;
-            virtualbox.enable = true;
+            cli = {
+                kitty.enable = true;
+                nixvim.enable = true;
+                docker.enable = true;
+            };
+            gui = {
+                common.enable = true;
+                browser = {
+                firefox.enable = true;
+                };
+                theming = {
+                stylix.enable = true;
+                };
+                vm = {
+                virtualbox.enable = true;
+                };
+
+
+
+
+
+            };
           };
           services.printing.enable = true;
           system = {

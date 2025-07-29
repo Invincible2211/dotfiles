@@ -4,7 +4,6 @@
   environment.systemPackages = with pkgs; [
     vesktop
     obsidian
-    spotify
     protonmail-desktop
     jetbrains.pycharm-professional
     jetbrains.idea-ultimate
@@ -19,6 +18,8 @@
     kalker
     openconnect
     onlyoffice-desktopeditors
+    plexamp
+    citrix_workspace
   ];
 
 }
