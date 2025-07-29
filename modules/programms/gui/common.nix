@@ -21,5 +21,4 @@
     plexamp
     citrix_workspace
   ];
-
 }

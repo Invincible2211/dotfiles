@@ -34,7 +34,6 @@
       url = "github:anders130/modulix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
   outputs = inputs: {
@@ -57,26 +56,21 @@
         modules = {
           programms = {
             cli = {
-                kitty.enable = true;
-                nixvim.enable = true;
-                docker.enable = true;
+              kitty.enable = true;
+              nixvim.enable = true;
+              docker.enable = true;
             };
             gui = {
-                common.enable = true;
-                browser = {
+              common.enable = true;
+              browser = {
                 firefox.enable = true;
-                };
-                theming = {
+              };
+              theming = {
                 stylix.enable = true;
-                };
-                vm = {
+              };
+              vm = {
                 virtualbox.enable = true;
-                };
-
-
-
-
-
+              };
             };
           };
           services.printing.enable = true;
