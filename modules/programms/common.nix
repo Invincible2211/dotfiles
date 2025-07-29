@@ -20,5 +20,5 @@
     openconnect
     onlyoffice-desktopeditors
   ];
-  
+
 }

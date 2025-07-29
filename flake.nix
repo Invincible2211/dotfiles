@@ -36,7 +36,6 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    nix-easyroam.url = "github:0x5a4/nix-easyroam";
   };
 
   outputs = inputs: {
@@ -54,7 +53,6 @@
       sharedConfig = {...}: {
         imports = [
           inputs.home-manager.nixosModules.home-manager
-
           inputs.nixvim.nixosModules.nixvim
         ];
         modules = {
