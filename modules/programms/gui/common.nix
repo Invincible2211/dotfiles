@@ -1,5 +1,11 @@
 {pkgs, ...}: {
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [
+        "libsoup-2.74.3"
+        "libxml2-2.13.8"
+    ];
+  };
 
   environment.systemPackages = with pkgs; [
     vesktop
@@ -19,6 +25,9 @@
     openconnect
     onlyoffice-desktopeditors
     plexamp
+    plex-desktop
     citrix_workspace
+    vscodium
   ];
+
 }

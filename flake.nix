@@ -3,6 +3,9 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,7 +30,6 @@
 
     stylix = {
       url = "github:danth/stylix/release-25.05";
-      inputs.home-manager.follows = "home-manager";
     };
 
     modulix = {
@@ -35,8 +37,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-
   outputs = inputs: {
+    overlays = {
+        nixpkgs = import ./overlays/nixpkgs.nix inputs;
+    };
     formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.alejandra;
     nixosConfigurations = inputs.modulix.lib.mkHosts {
       inherit inputs;

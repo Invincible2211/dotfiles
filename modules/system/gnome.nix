@@ -11,7 +11,7 @@
     no-overview
   ];
 in {
-  services.gnome.core-utilities.enable = false;
+  services.gnome.core-apps.enable = false;
   environment.systemPackages = extensions;
   environment.defaultPackages = [];
 
