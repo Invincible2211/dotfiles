@@ -12,6 +12,8 @@
     (final: prev: {wfetch = inputs.wfetch.packages.${pkgs.system}.default;})
   ];
 
+  system.stateVersion = "24.05";
+
   modules = {
     git.enable = true;
     system.gnome.enable = true;

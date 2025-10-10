@@ -14,9 +14,9 @@
 
   services.gnome.gnome-keyring.enable = true;
 
-  services.xserver = {
-    videoDrivers = [
-      "displaylink"
-    ];
-  };
+#  services.xserver = {
+ #   videoDrivers = [
+  #    "displaylink"
+   # ];
+ # };
 }

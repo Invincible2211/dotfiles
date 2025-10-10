@@ -13,10 +13,6 @@
 
     wfetch.url = "github:iynaix/wfetch";
 
-    nix-xilinx = {
-      url = "gitlab:doronbehar/nix-xilinx";
-    };
-
     nixvim = {
       url = "github:nix-community/nixvim/nixos-25.05";
       # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
@@ -62,10 +58,10 @@
             cli = {
               kitty.enable = true;
               nixvim.enable = true;
-              docker.enable = true;
+              docker.enable = false;
             };
             gui = {
-              common.enable = true;
+              common.enable = false;
               browser = {
                 firefox.enable = true;
               };
@@ -73,13 +69,13 @@
                 stylix.enable = true;
               };
               vm = {
-                virtualbox.enable = true;
+                virtualbox.enable = false;
               };
             };
           };
           services.printing.enable = true;
           system = {
-            kernel.enable = true;
+            kernel.enable = false;
             audio.enable = true;
             display.enable = true;
             font.enable = true;
