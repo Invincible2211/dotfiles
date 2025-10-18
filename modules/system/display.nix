@@ -1,22 +1,33 @@
-{
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+{config, ...}: let
+  isGnome = config.modules.system.gnome.enable or false;
+  isHyprland = config.modules.system.compositor.hyprland.enable or false;
+in {
+  # Enable X11 windowing system (needed for GNOME and Xwayland)
+  services.xserver = {
+    enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+    # Configure keymap
+    xkb = {
+      layout = "de";
+      variant = "";
+    };
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "de";
-    variant = "";
+    # Enable GNOME if configured
+    displayManager.gdm = {
+      enable = isGnome || isHyprland;
+      wayland = isHyprland;
+    };
+    desktopManager.gnome.enable = isGnome;
+
+    # Uncomment if needed
+    # videoDrivers = [
+    #   "displaylink"
+    # ];
   };
 
-  services.gnome.gnome-keyring.enable = true;
+  # Console keymap
+  console.keyMap = "de";
 
-#  services.xserver = {
- #   videoDrivers = [
-  #    "displaylink"
-   # ];
- # };
+  # Enable keyring
+  services.gnome.gnome-keyring.enable = true;
 }
