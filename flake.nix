@@ -28,6 +28,11 @@
       url = "github:danth/stylix/release-25.05";
     };
 
+    zenix = {
+      url = "github:anders130/zenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     modulix = {
       url = "github:anders130/modulix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -53,6 +58,8 @@
           inputs.home-manager.nixosModules.home-manager
           inputs.nixvim.nixosModules.nixvim
         ];
+        # Apply zenix overlay for zen-browser package
+        nixpkgs.overlays = [inputs.zenix.overlays.default];
       };
     };
   };

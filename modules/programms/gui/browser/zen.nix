@@ -1,5 +1,6 @@
-{pkgs, ...}: {
-  hm.home.packages = with pkgs; [
-    zen-browser
-  ];
+{inputs, ...}: {
+  hm = {
+    imports = [inputs.zenix.homeModules.default];
+    programs.zenix.enable = true;
+  };
 }
