@@ -22,7 +22,7 @@
   ];
 
   hm.home.packages = with pkgs; [
-    gnome.nautilus
+    nautilus
   ];
 
   xdg.portal = {
