@@ -29,7 +29,7 @@
       ssh.enable = true;
       compositor = {
         hyprland.enable = true;
-        waybar.enable = true;
+        hyprpanel.enable = true;
         waylock.enable = true;
         wallpaper.enable = true;
       };
