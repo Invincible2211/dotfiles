@@ -17,6 +17,12 @@
     slurp
     hyprpicker
     wlr-randr
+    wofi
+    gnome-file-roller
+  ];
+
+  hm.home.packages = with pkgs; [
+    gnome.nautilus
   ];
 
   xdg.portal = {
