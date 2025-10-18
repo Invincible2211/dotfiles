@@ -31,11 +31,9 @@
     systemd.enable = true;
 
     settings = {
-      monitor = ",preferred,auto,1";
+      monitor = ",preferred,auto,1,transform,3";
 
-      exec-once = [
-        "waybar"
-      ];
+      exec-once = [];
 
       env = [
         "XCURSOR_SIZE,24"
