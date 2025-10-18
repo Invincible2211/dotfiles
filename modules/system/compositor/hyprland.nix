@@ -9,7 +9,7 @@
     xwayland.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
+    environment.systemPackages = with pkgs; [
     xdg-utils
     xdg-desktop-portal-hyprland
     wl-clipboard
@@ -37,7 +37,7 @@
     systemd.enable = true;
 
     settings = {
-      monitor = ",preferred,auto,1,transform,3";
+      monitor = lib.mkDefault ",preferred,auto,1";
 
       exec-once = [];
 

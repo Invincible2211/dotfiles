@@ -58,8 +58,10 @@
           inputs.home-manager.nixosModules.home-manager
           inputs.nixvim.nixosModules.nixvim
         ];
-        # Apply zenix overlay for zen-browser package
-        nixpkgs.overlays = [inputs.zenix.overlays.default];
+        # Apply central overlay with all package sources
+        nixpkgs.overlays = [
+          (import ./overlays/nixpkgs.nix inputs)
+        ];
       };
     };
   };

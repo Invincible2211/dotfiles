@@ -1,16 +1,7 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{...}: {
   imports = [
     ./hardware-configuration.nix
     ./modules.nix
-  ];
-
-  nixpkgs.overlays = [
-    inputs.self.overlays.nixpkgs
-    (final: prev: {wfetch = inputs.wfetch.packages.${pkgs.system}.default;})
   ];
 
   system.stateVersion = "24.05";
@@ -22,5 +13,4 @@
     boot.systemboot.enable = true;
     boot.plymouth.enable = true;
   };
-
 }
