@@ -18,7 +18,7 @@
     hyprpicker
     wlr-randr
     wofi
-    gnome-file-roller
+    file-roller
   ];
 
   hm.home.packages = with pkgs; [
