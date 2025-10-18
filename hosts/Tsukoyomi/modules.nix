@@ -9,7 +9,10 @@
       gui = {
         common.enable = false;
         browser = {
-          firefox.enable = true;
+          zen.enable = true;
+        };
+        social = {
+          vesktop.enable = true;
         };
         theming = {
           stylix.enable = true;
