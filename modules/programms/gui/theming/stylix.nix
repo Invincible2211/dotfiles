@@ -18,9 +18,6 @@
       base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
       image = "${imagerepo}/" + lib.toLower internalName + "/nix-wallpaper-anime.png";
       polarity = "dark";
-
-      # Disable automatic theming for hyprlock (handled by hyprlock module)
-      targets.hyprlock.enable = false;
     };
   };
 }
