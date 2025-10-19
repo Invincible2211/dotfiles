@@ -3,9 +3,11 @@
   lib,
   imagerepo,
   internalName,
+  username,
   ...
 }: let
-  wallpaperDir = "${imagerepo}/" + lib.toLower internalName + "/wallpapers";
+  wallpaperDir = "/home/${username}/Bilder/Wallpapers";
+  sourceWallpaperDir = "${imagerepo}/" + lib.toLower internalName + "/wallpapers";
 
   wallpaper-switch = pkgs.writeShellScriptBin "wallpaper-switch" ''
     #!/usr/bin/env bash
@@ -77,6 +79,14 @@ in {
     pkgs.waypaper
     wallpaper-switch
   ];
+
+  # Copy wallpapers from image-repo to user directory
+  hm.home.activation.copyWallpapers = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    if [ -d "${sourceWallpaperDir}" ]; then
+      $DRY_RUN_CMD mkdir -p "${wallpaperDir}"
+      $DRY_RUN_CMD ${pkgs.rsync}/bin/rsync -av --chmod=u+w "${sourceWallpaperDir}/" "${wallpaperDir}/"
+    fi
+  '';
 
   # Start swww daemon with Hyprland
   hm.wayland.windowManager.hyprland.settings.exec-once = [
