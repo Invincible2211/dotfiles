@@ -80,13 +80,11 @@ in {
     wallpaper-switch
   ];
 
-  # Copy wallpapers from image-repo to user directory
-  hm.home.activation.copyWallpapers = hm.lib.dag.entryAfter ["writeBoundary"] ''
-    if [ -d "${sourceWallpaperDir}" ]; then
-      $DRY_RUN_CMD mkdir -p "${wallpaperDir}"
-      $DRY_RUN_CMD ${pkgs.rsync}/bin/rsync -av --chmod=u+w "${sourceWallpaperDir}/" "${wallpaperDir}/"
-    fi
-  '';
+  # Symlink wallpapers from image-repo to user directory
+  hm.home.file."Bilder/Wallpapers" = lib.mkIf (builtins.pathExists sourceWallpaperDir) {
+    source = sourceWallpaperDir;
+    recursive = true;
+  };
 
   # Start swww daemon with Hyprland
   hm.wayland.windowManager.hyprland.settings.exec-once = [
