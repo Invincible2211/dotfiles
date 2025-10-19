@@ -10,7 +10,7 @@ inputs: final: prev: let
     zenixOverlay = inputs.zenix.overlays.default final prev;
 in {
     # Packages from unstable channel
-    inherit (unstable) citrix_workspace;
+    inherit (unstable) citrix_workspace swww;
 
     # Packages from external overlays
     inherit (zenixOverlay) zen-browser;
