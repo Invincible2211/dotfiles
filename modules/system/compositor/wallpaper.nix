@@ -81,7 +81,7 @@ in {
   ];
 
   # Copy wallpapers from image-repo to user directory
-  hm.home.activation.copyWallpapers = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  hm.home.activation.copyWallpapers = hm.lib.dag.entryAfter ["writeBoundary"] ''
     if [ -d "${sourceWallpaperDir}" ]; then
       $DRY_RUN_CMD mkdir -p "${wallpaperDir}"
       $DRY_RUN_CMD ${pkgs.rsync}/bin/rsync -av --chmod=u+w "${sourceWallpaperDir}/" "${wallpaperDir}/"
