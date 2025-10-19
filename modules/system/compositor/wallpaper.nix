@@ -59,11 +59,10 @@
 
     NEW_WALLPAPER="''${WALLPAPERS[$NEXT_INDEX]}"
 
-    # Set wallpaper with swww (with fade animation)
+    # Set wallpaper with swww (simple transition for better compatibility with rotated displays)
     ${pkgs.swww}/bin/swww img "$NEW_WALLPAPER" \
-      --transition-type fade \
-      --transition-duration 2 \
-      --transition-fps 60
+      --transition-type simple \
+      --transition-duration 1
 
     # Save state
     echo "$NEW_WALLPAPER" > "$STATE_FILE"
