@@ -28,6 +28,7 @@
       greeting = "Welcome to Tsukoyomi";
       greetingAlignment = "center";
       width = 60;
+      rotation = 270; # Rotate display 270° (same as Hyprland transform 3)
     };
   };
 }

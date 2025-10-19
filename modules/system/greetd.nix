@@ -72,6 +72,12 @@ in {
       example = ["--issue" "--power-shutdown 'systemctl poweroff'"];
     };
 
+    rotation = lib.mkOption {
+      type = lib.types.nullOr (lib.types.enum [0 90 180 270]);
+      default = null;
+      description = "Display rotation in degrees (0, 90, 180, 270). Applied before tuigreet starts.";
+    };
+
     autologin = {
       enable = lib.mkOption {
         type = lib.types.bool;
@@ -110,8 +116,22 @@ in {
               ++ lib.optional cfg.rememberSession "--remember-session"
               ++ lib.optional cfg.rememberUserSession "--remember-user-session"
               ++ cfg.extraArgs);
+
+          # Wrapper script for tuigreet with rotation support
+          tuigreetWithRotation = pkgs.writeShellScript "tuigreet-with-rotation" ''
+            ${lib.optionalString (cfg.rotation != null) ''
+              # Set WLR output transform for rotation
+              export WLR_WL_OUTPUTS="1:transform=${toString ({
+                "0" = "normal";
+                "90" = "90";
+                "180" = "180";
+                "270" = "270";
+              }.${toString cfg.rotation})}"
+            ''}
+            exec ${tuigreetCmd}
+          '';
         in {
-          command = tuigreetCmd;
+          command = if cfg.rotation != null then "${tuigreetWithRotation}" else tuigreetCmd;
           user = "greeter";
         };
 
