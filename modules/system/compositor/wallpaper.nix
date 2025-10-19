@@ -59,10 +59,11 @@
 
     NEW_WALLPAPER="''${WALLPAPERS[$NEXT_INDEX]}"
 
-    # Set wallpaper with swww (simple transition for better compatibility with rotated displays)
+    # Set wallpaper with swww (fit mode for portrait images on portrait display)
     ${pkgs.swww}/bin/swww img "$NEW_WALLPAPER" \
       --transition-type simple \
-      --transition-duration 1
+      --transition-duration 1 \
+      --resize fit
 
     # Save state
     echo "$NEW_WALLPAPER" > "$STATE_FILE"
