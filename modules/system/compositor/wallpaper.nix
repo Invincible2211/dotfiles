@@ -88,7 +88,6 @@ in {
   # Start swww daemon with Hyprland
   hm.wayland.windowManager.hyprland.settings.exec-once = [
     "${pkgs.swww}/bin/swww-daemon"
-    "${pkgs.swww}/bin/swww img ${wallpaperDir}/default.png --transition-type fade"
   ];
 
   # Waypaper config for GUI wallpaper selection
