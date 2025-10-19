@@ -279,11 +279,11 @@
     "image-repo": {
       "flake": false,
       "locked": {
-        "lastModified": 1760802404,
-        "narHash": "sha256-c9hWh/AvyU2CRCgbHGFSDV5f/lp/9AZ+vJL7UDW9O3o=",
+        "lastModified": 1760907917,
+        "narHash": "sha256-PwwoRcx1RJjaQLIVOSW0I1OTEaVBbI/pmVrurEGGRWM=",
         "owner": "Invincible2211",
         "repo": "nix-images",
-        "rev": "ccc40d4327aafaa77e108d377895fd7a3d19366c",
+        "rev": "6542d729488ffee6868b4c2a6ec184c711e0e78c",
         "type": "github"
       },
       "original": {
