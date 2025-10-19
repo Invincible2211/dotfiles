@@ -18,5 +18,16 @@
 
     # Firefox as fallback browser
     programms.gui.browser.firefox.enable = true;
+
+    # Display manager - greetd with tuigreet
+    system.greetd = {
+      enable = true;
+      time = true;
+      remember = true;
+      rememberSession = true;
+      greeting = "Welcome to Tsukoyomi";
+      greetingAlignment = "center";
+      width = 60;
+    };
   };
 }
