@@ -19,8 +19,8 @@
     mkdir -p "$(dirname "$STATE_FILE")"
     touch "$STATE_FILE"
 
-    # Get all wallpapers
-    mapfile -t WALLPAPERS < <(find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) | sort)
+    # Get all wallpapers (follow symlinks with -L)
+    mapfile -t WALLPAPERS < <(find -L "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) | sort)
 
     if [ ''${#WALLPAPERS[@]} -eq 0 ]; then
       echo "No wallpapers found in $WALLPAPER_DIR"
