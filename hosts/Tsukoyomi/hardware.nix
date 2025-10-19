@@ -9,11 +9,9 @@
     cursor = {
       no_hardware_cursors = true;
     };
-
-    # Disable DPMS to prevent mouse input issues after idle
-    misc = {
-      mouse_move_enables_dpms = true;
-      key_press_enables_dpms = true;
-    };
   };
+
+  # Disable USB autosuspend to prevent keyboard/mouse from going to sleep
+  # (RGB lighting turns off and first keypress/click is consumed)
+  boot.kernelParams = ["usbcore.autosuspend=-1"];
 }
