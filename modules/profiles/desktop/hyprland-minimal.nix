@@ -5,7 +5,7 @@
   modules = {
     system.compositor = {
       hyprland.enable = true;
-      waylock.enable = true;
+      hyprlock.enable = true;
     };
   };
 }

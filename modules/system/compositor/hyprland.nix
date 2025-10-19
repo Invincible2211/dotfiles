@@ -135,7 +135,6 @@
         "$mod, P, pseudo,"
         "$mod, J, togglesplit,"
         "$mod, F, fullscreen,"
-        "$mod, L, exec, waylock"
 
         # Move focus with mod + arrow keys
         "$mod, left, movefocus, l"
