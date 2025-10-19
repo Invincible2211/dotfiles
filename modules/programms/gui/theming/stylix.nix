@@ -18,9 +18,9 @@
       base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
       image = "${imagerepo}/" + lib.toLower internalName + "/nix-wallpaper-anime.png";
       polarity = "dark";
-
-      # Disable Stylix wallpaper management for Hyprland (use swww instead)
-      targets.hyprland.enable = false;
     };
+
+    # Disable Stylix wallpaper service (use swww instead)
+    hm.services.hyprpaper.enable = lib.mkForce false;
   };
 }
