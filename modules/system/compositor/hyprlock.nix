@@ -58,9 +58,6 @@ in {
     # Enable PAM for hyprlock authentication
     security.pam.services.hyprlock = {};
 
-    # Disable Stylix theming for hyprlock (we handle it ourselves)
-    stylix.targets.hyprlock.enable = lib.mkForce false;
-
     # Configure hyprlock via home-manager
     hm.programs.hyprlock = {
       enable = true;
